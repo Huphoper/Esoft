@@ -1,0 +1,72 @@
+﻿<Window x:Class="Esoft.Executor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Esoft"
+        mc:Ignorable="d"
+        Title="Исполнитель" Height="700" Width="907.731"
+        WindowStartupLocation="CenterScreen">
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+            <RowDefinition Height="70*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <!--************************************************************************************************************************************-->
+        <Image Margin="15,0,201,57" Grid.RowSpan="2" Source="logo.png" Stretch="Fill"/>
+        <TextBlock Grid.Row="1" TextAlignment="Center" FontSize="18" FontFamily="Comic Sans MS" Padding="5" Margin="15,33,0,71" Grid.Column="0" HorizontalAlignment="Left" Grid.RowSpan="2" >Исполнитель:</TextBlock>
+        <TextBox x:Name="Login" Grid.Column="0" Grid.Row="1" Margin="147,40,163,10" BorderBrush="White" BorderThickness="1" Height="25" Width="140" FontWeight="Bold" IsReadOnly="True"/>
+
+
+
+        <!--************************************************************************************************************************************-->
+
+
+        <TextBlock  TextAlignment="Center" FontSize="28" FontFamily="Comic Sans MS" Padding="0,15,0,0" FontWeight="Bold" HorizontalAlignment="Left" Width="450" Grid.Column="1" >Список задач</TextBlock>
+
+        <Button Click="ButtonReloadTask" Grid.Row="3" Content="Обновить список" Foreground="White" BorderBrush="#FF04A0FF" Background="#FF04A0FF" Padding="1,1,1,3" Margin="255,5,15,37" FontFamily="Comic Sans MS"  Height="32" Width="180" FontSize="18" Grid.Column="1" />
+
+        <TextBlock Grid.Row="3"  FontSize="18" FontFamily="Comic Sans MS" Padding="0" Margin="15,5,0,39" HorizontalAlignment="Left" Width="200" Height="30" >Статус выполнения:</TextBlock>
+        <ComboBox Grid.Row="3" Margin="206,10,44,39" Padding="0" Height="25" BorderBrush="#FF04A0FF" BorderThickness="1" Width="200" x:Name="taskstatus" FontFamily="Comic Sans MS">
+            <TextBlock></TextBlock>
+            <TextBlock>Запланирована</TextBlock>
+            <TextBlock>Выполняется</TextBlock>
+            <TextBlock>Завершена</TextBlock>
+            <TextBlock>Отменена</TextBlock>
+        </ComboBox>
+
+        <!--************************************************************************************************************************************-->
+
+        <DataGrid x:Name="TasksForExecutors" CanUserAddRows="False" AutoGenerateColumns="True"  Grid.ColumnSpan="2" Margin="15,44,15,20" Grid.Row="3" Grid.RowSpan="6" FontFamily="Comic Sans MS">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="ButtonReditTask" Content="Ред." ></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+
+        <!--************************************************************************************************************************************-->
+
+    </Grid>
+</Window>
